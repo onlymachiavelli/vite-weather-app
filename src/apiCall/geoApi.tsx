@@ -7,4 +7,6 @@ const geoApi = async () => {
   return response
 }
 
+
+
 export default geoApi
