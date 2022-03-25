@@ -10,3 +10,4 @@ const weatherApi = async () => {
   })
   return response
 }
+export default weatherApi
