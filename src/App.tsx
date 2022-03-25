@@ -6,6 +6,9 @@ const Home = () =>{
   useEffect(()=>{
     geoApi().then(
       (res:any)=>{
+
+        console.log(res);
+        
         if(res){
           setG(res)
         }
