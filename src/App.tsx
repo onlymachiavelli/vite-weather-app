@@ -1,10 +1,21 @@
-import React, {} from "react"
+import React, {useState, useEffect} from "react"
 
-
+import geoApi from "./apiCall/geoApi"
 const Home = () =>{
+  const [g, setG] = useState({})
+  useEffect(()=>{
+    geoApi().then(
+      (res:any)=>{
+        if(res){
+          setG(res)
+        }
+      }
+    )
+  },[])
+  console.log(g)
   return (
     <div>
-      Hello world
+      
     </div>
   )
 }
