@@ -2,23 +2,31 @@ import React, {useState, useEffect} from "react"
 
 import geoApi from "./apiCall/geoApi"
 const Home = () =>{
-  const [g, setG] = useState({})
-  useEffect(()=>{
-    geoApi().then(
-      (res:any)=>{
+  const [wRes, setW] = useState({
+    name:"",
+    code:"",
 
-        console.log(res);
-        
-        if(res){
-          setG(res)
+  })
+  useEffect(()=>{
+    (
+      async()=>{
+        const location:any = await geoApi()
+        if (location){
+          console.log(location)
+          setW({
+            name:location.countryName,
+            code:location.countryCode.toLowerCase()
+          })
         }
       }
-    )
+    )()
   },[])
-  console.log(g)
+  console.log(wRes)
   return (
-    <div>
-      
+    <div className="w-full h-screen bg-gen bg-cover bg-no-repeat">
+      <div className="w-full h-full bg-transBlack absolute ">
+        <div></div>
+      </div>
     </div>
   )
 }
